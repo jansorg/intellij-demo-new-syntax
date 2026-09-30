@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>dev.j-a.demo.new-syntax</id>
+    <name>Demo of the Syntax API</name>
+    <vendor url="https://www.j-a.dev">Joachim Ansorg</vendor>
+    <description><![CDATA[
+      Demonstrates a language with a Kotlin lexer and parser of the syntax API of the IntelliJ Platform,
+      which the build generates from a JFlex and a Grammar-Kit grammar.
+    ]]></description>
+
+    <dependencies>
+        <plugin id="com.intellij.modules.platform"/>
+    </dependencies>
+
+    <content>
+        <module name="demo.syntax" loading="required"/>
+        <module name="demo.shared" loading="required"/>
+        <module name="demo.backend"/>
+    </content>
+</idea-plugin>

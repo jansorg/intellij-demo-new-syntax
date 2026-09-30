@@ -1,0 +1,11 @@
+<idea-plugin>
+    <!-- Features of the language which run on the backend. -->
+    <dependencies>
+        <module name="intellij.platform.backend"/>
+        <module name="demo.shared"/>
+    </dependencies>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <annotator language="Demo" implementationClass="demo.annotator.DemoDuplicateKeyAnnotator"/>
+    </extensions>
+</idea-plugin>

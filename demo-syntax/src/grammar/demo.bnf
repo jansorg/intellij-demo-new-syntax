@@ -1,0 +1,37 @@
+{
+  // The parser speaks the syntax API of the platform, which knows nothing of the PSI.
+  // The build generates it into demo-syntax and the PSI into demo-shared, see buildSrc.
+  generate = [java="21" parser-api="syntax"]
+
+  // syntax part, Kotlin, generated into demo-syntax
+  parserClass="demo.parser.DemoSyntaxParser"
+  syntaxElementTypeHolderClass="demo.syntax.DemoSyntaxElementTypes"
+
+  // PSI part, Java, generated into demo-shared
+  elementTypeConverterFactoryClass="demo.psi.DemoElementTypeConverterFactory"
+  elementTypeHolderClass="demo.psi.DemoTypes"
+  elementTypeClass="demo.psi.DemoElementType"
+  tokenTypeClass="demo.psi.DemoTokenType"
+  psiClassPrefix="Demo"
+  psiImplClassSuffix="Impl"
+  psiPackage="demo.psi"
+  psiImplPackage="demo.psi.impl"
+
+  tokens = [
+    WORD = 'regexp:[a-zA-Z]+'
+    EQ   = '='
+  ]
+}
+
+// A file of lines "name = value"
+file ::= assignment*
+
+assignment ::= key EQ value {
+  pin = 2
+  recoverWhile = assignment_recover
+}
+
+key ::= WORD
+value ::= WORD
+
+private assignment_recover ::= !(WORD EQ)

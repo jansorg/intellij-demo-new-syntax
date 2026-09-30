@@ -1,0 +1,18 @@
+<idea-plugin>
+    <!-- The language, its PSI and highlighting, which frontend and backend share. -->
+    <dependencies>
+        <module name="demo.syntax"/>
+    </dependencies>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Demo" language="Demo" extensions="demo"
+                  implementationClass="demo.DemoFileType" fieldName="INSTANCE"/>
+        <lang.parserDefinition language="Demo" implementationClass="demo.DemoParserDefinition"/>
+        <lang.syntaxHighlighter language="Demo" implementationClass="demo.highlighting.DemoSyntaxHighlighter"/>
+
+        <!-- the syntax API: the lexer, and the mapping of its element types to those of the PSI -->
+        <syntax.syntaxDefinition language="Demo" implementationClass="demo.syntax.DemoLanguageDefinition"/>
+        <syntax.elementTypeConverter language="Demo" implementationClass="demo.psi.DemoElementTypeConverterFactory"/>
+        <syntax.elementTypeConverter language="Demo" implementationClass="demo.psi.DemoFileElementTypeConverterFactory"/>
+    </extensions>
+</idea-plugin>

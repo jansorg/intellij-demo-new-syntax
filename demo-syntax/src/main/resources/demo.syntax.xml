@@ -1,0 +1,6 @@
+<idea-plugin>
+    <!--
+      The lexer and the parser of Demo files, which read a text into tokens and a tree of them with the syntax API of the
+      platform. The module knows nothing of the PSI, which is built by demo.shared.
+    -->
+</idea-plugin>
